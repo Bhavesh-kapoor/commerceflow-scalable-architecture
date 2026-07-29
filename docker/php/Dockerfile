@@ -5,6 +5,7 @@ WORKDIR  /var/www/html
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
+    iputils-ping \
     zip \
     curl \
     libzip-dev \
