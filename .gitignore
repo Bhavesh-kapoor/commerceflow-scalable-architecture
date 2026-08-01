@@ -1,0 +1,11 @@
+#node
+node_modules
+
+backend/vendor
+backend/.env
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
