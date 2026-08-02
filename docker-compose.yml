@@ -51,7 +51,8 @@ services:
     build: 
       context: ./node-services/notification-service
       dockerfile: Dockerfile
-      container_name: notification-service
+    
+    container_name: notification-service
 
     ports:
       - "3000:3000"
@@ -61,6 +62,23 @@ services:
     
     depends_on:
       - redis
+  
+  notification-worker-service:
+    build: 
+     context: ./node-services/notification-service
+     dockerfile: Dockerfile
+    
+    container_name: notification-worker
+    command: npm run worker
+    depends_on:
+      - redis
+
+  mailhog:
+    image: axllent/mailpit:latest
+    container_name: mailhog-service
+    ports:
+      - "8025:8025"
+      - "1025:1025"
 
     
 volumes:
